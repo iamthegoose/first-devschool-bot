@@ -1,5 +1,4 @@
 from aiogram import Bot, Dispatcher
-from aiogram.types import BotCommand
 from app.settings import settings
 from app.bot.handlers import router as mainrouter
 from aiogram.enums import ParseMode

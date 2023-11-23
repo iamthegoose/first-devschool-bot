@@ -3,7 +3,7 @@ from typing import Any
 from aiogram import Bot, Dispatcher
 from fastapi import FastAPI
 from pydantic import AnyUrl
-from app.api.stubs import *
+from app.api.stubs import BotStub, DispatcherStub
 from app.api.routes.webhook import webHookRouter
 from app.settings import settings
 

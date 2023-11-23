@@ -5,4 +5,4 @@ from app.bot.keyboard.kb import keyboardBuild
 
 async def start(message: Message) -> None:
 
-    await message.answer(await START.render_async(name=message.from_user.first_name), reply_markup=await keyboardBuild())
+    await message.answer(await START.render_async(name=message.from_user.first_name), reply_markup=await keyboardBuild())# type: ignore[union-attr]

@@ -3,8 +3,8 @@ from app.bot.handlers.general.handlerStart import start
 from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
 from app.utils.fileUpload import Upload
-from app.bot.handlers.general.handlerDownload import download, inline
-from app.utils.callback import de_inline
+from app.bot.handlers.general.handlerDownload import inline
+from app.utils.callback import download
 # from app.bot.handlers.general.handlerHelp import help
 
 router = Router(name=__name__)
@@ -20,5 +20,4 @@ router.message.register(file_accepted, Upload.file)
 # router.callback_query.register(download, lambda x: x.data=="download")
 router.message.register(inline, Command("download"))
 router.message.register(inline, F.text == "Download the file")
-
-router.callback_query.register(de_inline)
+router.callback_query.register(download)
