@@ -8,5 +8,5 @@ Upload the file you want!
 """)
 
 FILEACCEPTED_MSG = environment.from_string("""
-Your file was successfully uploaded to {{destination}}
+Your file was successfully uploaded!
 """)

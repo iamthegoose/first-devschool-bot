@@ -1,5 +1,5 @@
 from app.messages.env import environment
 START = environment.from_string("""
-This is the start message!
 Hello, {{name}}!
+Choose what you would like to do
 """)
