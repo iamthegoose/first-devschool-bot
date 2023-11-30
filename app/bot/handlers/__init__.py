@@ -2,9 +2,11 @@ from app.bot.handlers.general.handlerUpload import upload, upload_file, file_acc
 from app.bot.handlers.general.handlerStart import start
 from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
-from app.utils.fileUpload import Upload
+from app.utils.states.fileUpload import Upload
 from app.bot.handlers.general.handlerDownload import inline
 from app.utils.callback import download
+from app.bot.handlers.general.handlerFromUrl import fromurl, send_file
+from app.utils.states.linkDownload import LinkState
 # from app.bot.handlers.general.handlerHelp import help
 
 router = Router(name=__name__)
@@ -21,3 +23,8 @@ router.message.register(file_accepted, Upload.file)
 router.message.register(inline, Command("download"))
 router.message.register(inline, F.text == "Download the file")
 router.callback_query.register(download)
+
+
+router.message.register(fromurl, Command("fromurl"))
+router.message.register(fromurl, F.text == "Download the file from the link")
+router.message.register(send_file, LinkState.sending_url)

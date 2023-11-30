@@ -1,7 +1,7 @@
 from aiogram.types import Message
 from aiogram import Bot
 from aiogram.fsm.context import FSMContext
-from app.utils.fileUpload import Upload
+from app.utils.states.fileUpload import Upload
 from app.messages.uploadmessages import FILENAME_MSG, FILEUPLOAD_MSG, FILEACCEPTED_MSG
 
 
@@ -38,3 +38,4 @@ async def file_accepted(message: Message, state: FSMContext, bot: Bot) -> None:
         await state.clear()
     else:
         await message.answer("This file is not supportable. Remove check on 'compress the image'")
+        await state.clear()
